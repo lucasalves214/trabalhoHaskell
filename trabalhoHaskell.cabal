@@ -6,7 +6,7 @@ build-type:        Simple
 executable         trabalhoHaskell
     hs-source-dirs: src
 
-    main-is:           ../main.hs
+    main-is:           ../Main.hs
 
     ghc-options:       -threaded -O2 -rtsopts -with-rtsopts=-N
 

@@ -16,21 +16,20 @@ share [mkPersist sqlSettings, mkMigrate "migrateAll"] [persistLowerCase|
 Aluno
    nome Text
    rg Text
-   curso CursoId
    telefone Text
    cep Text
    lograd Text
    numr Text
    bairro Text
    cidade Text
-   uf Text
+   uf Text sqltype=varchar(2)
+   cursoid CursoId
    deriving Show
    
-Usuario
+Usuarioa
    login Text
    senha Text
    aluno AlunoId
-   professor ProfessorId
    deriving Show
    
 Curso
@@ -38,7 +37,7 @@ Curso
    sigla Text sqltype=varchar(3)
    deriving Show
 
-Discisciplinas
+Disciplinas
    nome Text
    sigla Text sqltyoe=varchar(3)
    curso CursoId
@@ -56,6 +55,12 @@ Professor
    uf Text
    curso CursoId
    disciplina DisciplinasId
+   deriving Show
+   
+UsuarioP
+   login Text
+   senha Text
+   professor ProfessorId
    deriving Show
 |]
 
