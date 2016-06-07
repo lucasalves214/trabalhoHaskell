@@ -8,9 +8,9 @@ pRoutes = [parseRoutes|
    /cadastro-aluno CadastroAlR GET POST
    /cadastro-curso CadastroCsR GET POST
    /perfil-aluno/#AlunoId PerfilAlR GET
-   /cadastro-usuario-prof CadastroUsPR GET
-   /cadastro-prof CadastroPrR GET
-   /cadastro-discip CadastroDsR GET
+   /cadastro-usuario-prof CadastroUsPR GET POST
+   /cadastro-prof CadastroPrR GET POST
+   /cadastro-discip CadastroDsR GET POST
    /boletim-update BoletimUpdateR GET
    /boletim BoletimR GET
    /listar-alunos ListarR GET

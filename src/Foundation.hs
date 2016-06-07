@@ -23,6 +23,7 @@ Aluno
    bairro Text
    cidade Text
    uf Text sqltype=varchar(2)
+   matricula Text
    cursoid CursoId
    deriving Show
    
@@ -53,11 +54,11 @@ Professor
    bairro Text
    cidade Text
    uf Text
+   matricula Text
    curso CursoId
-   disciplina DisciplinasId
    deriving Show
    
-UsuarioP
+Usuariop
    login Text
    senha Text
    professor ProfessorId
