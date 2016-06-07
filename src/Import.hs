@@ -14,5 +14,6 @@ pRoutes = [parseRoutes|
    /boletim-update BoletimUpdateR GET
    /boletim BoletimR GET
    /listar-alunos ListarR GET
+   /admin AdminR GET
    /static StaticR Static getStatic
 |]

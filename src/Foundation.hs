@@ -71,6 +71,39 @@ mkYesodData "Sitio" pRoutes
 
 mkMessage "Sitio" "language" "pt-br"
 
+instance Yesod Sitio where
+    authRoute _ = Just LoginR
+    
+    isAuthorized HomeR _ = return Authorized
+    isAuthorized CadastroUsAR _ = return Authorized
+    isAuthorized CadastroUsPR _ = return Authorized
+    isAuthorized AdminR _ = isAdmin
+    isAuthorized CadastroAlR _ = isAdmin
+    isAuthorized CadastroPrR _ = isAdmin
+    isAuthorized CadastroCsR _ = isAdmin
+    isAuthorized CadastroDsR _ = isAdmin
+    isAuthorized BoletimUpdateR _ = isUserp
+    isAuthorized _ _ = isUsera
+
+isUsera = do
+    mu <- lookupSession "_ID"
+    return $ case mu of
+        Nothing -> AuthenticationRequired
+        Just _ -> Authorized
+        
+isUserp = do
+    mu <- lookupSession "_ID"
+    return $ case mu of
+        Nothing -> AuthenticationRequired
+        Just _ -> Authorized
+    
+isAdmin = do
+    mu <- lookupSession "_ID"
+    return $ case mu of
+        Nothing -> AuthenticationRequired
+        Just "admin" -> Authorized 
+        Just _ -> Unauthorized "Área restrita"
+        
 instance YesodPersist Sitio where
    type YesodPersistBackend Sitio = SqlBackend
    runDB f = do
